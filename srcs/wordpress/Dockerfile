@@ -31,4 +31,4 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 
 # Rendre le script exécutable et définir la commande à exécuter
 RUN chmod +x /usr/local/bin/auto-config.sh
-CMD ["/usr/local/bin/auto-config.sh"]
+ENTRYPOINT /usr/local/bin/auto-config.sh

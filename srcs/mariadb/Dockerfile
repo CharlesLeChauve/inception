@@ -18,4 +18,4 @@ RUN chmod +x /usr/local/bin/init_db.sh
 RUN echo "Vérification du script mariadb.sh :" && \
     ls -l /usr/local/bin/init_db.sh
 
-CMD /usr/local/bin/init_db.sh
+ENTRYPOINT /usr/local/bin/init_db.sh
