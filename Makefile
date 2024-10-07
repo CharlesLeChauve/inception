@@ -5,6 +5,7 @@ DOCKER_COMPOSE = docker-compose -f ./srcs/docker-compose.yml -p $(PROJECT_NAME)
 all: buildup
 
 re:	clean-all buildup
+
 # Arrêter et supprimer tous les conteneurs, images, volumes, et réseaux
 clean-all:
 	@docker stop $$(docker ps -qa) 2>/dev/null || true
