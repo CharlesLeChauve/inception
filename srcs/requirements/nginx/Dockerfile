@@ -14,7 +14,7 @@ RUN openssl req -x509 -nodes \
     -subj "/C=FR/ST=Perpignan/L=Perpignan/O=42/OU=42Perpignan/CN=tgibert.42.fr/UID=tgibert"
 
 #copy config file
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 #add permission
 RUN chmod -R 755 /var/www/html

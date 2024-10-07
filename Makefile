@@ -1,6 +1,6 @@
 PROJECT_NAME = inception
 
-DOCKER_COMPOSE = docker-compose -p $(PROJECT_NAME)
+DOCKER_COMPOSE = docker-compose -f ./srcs/docker-compose.yml -p $(PROJECT_NAME)
 
 all: buildup
 
@@ -53,6 +53,3 @@ clean-volumes:
 
 restart:
 	$(DOCKER_COMPOSE) restart
-
-images:
-	docker images
