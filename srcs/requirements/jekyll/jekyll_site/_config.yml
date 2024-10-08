@@ -1,0 +1,5 @@
+title: "Mon Site Jekyll"
+description: "Un site statique pour présenter mon projet."
+baseurl: ""
+url: "http://localhost:4000"
+markdown: kramdown  # Convertisseur Markdown utilisé par Jekyll

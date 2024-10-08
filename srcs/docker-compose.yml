@@ -1,5 +1,17 @@
 version: '3.7'
 
+secrets:
+  db_root_password:
+    file: ../secrets/mysql_root_password.txt
+  db_password:
+    file: ../secrets/mysql_password.txt
+  wp_admin_password:
+    file: ../secrets/wp_admin_password.txt
+  wp_password:
+    file: ../secrets/wp_password.txt
+  ftp_password:
+    file: ../secrets/ftp_password.txt
+
 services:
   nginx:
     volumes:
@@ -23,6 +35,12 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env
+    environment:
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+    secrets:
+      - db_password
+      - db_root_password
     volumes:
       - mariadb:/var/lib/mysql
     ports:
@@ -38,6 +56,14 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env
+    environment:
+      WP_ADMIN_PASSWORD_FILE: /run/secrets/wp_admin_password
+      WP_PASSWORD_FILE: /run/secrets/wp_password
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - wp_admin_password
+      - wp_password
+      - db_password
     ports:
       - "9000:9000"
     volumes:
@@ -46,6 +72,53 @@ services:
       - mynetwork
     depends_on:
       - mariadb
+    restart: on-failure
+
+  adminer:
+    container_name: adminer
+    build: 
+      context: ./requirements/adminer 
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+    depends_on:
+      - mariadb
+    restart: on-failure
+
+  ftp:
+    container_name: ftp
+    build:
+      context: ./requirements/ftp
+      dockerfile: Dockerfile
+    secrets:
+      - ftp_password
+    ports:
+      - "21:21"
+      - "21000-21010:21000-21010"
+    networks:
+      - mynetwork
+    restart: on-failure
+  redis:
+    container_name: redis
+    build:
+      context: ./requirements/redis
+      dockerfile: Dockerfile
+    ports:
+      - "6379:6379"
+    networks:
+      - mynetwork
+    restart: on-failure
+  jekyll:
+    container_name: jekyll
+    build:
+      context: ./requirements/jekyll
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    networks:
+      - mynetwork
     restart: on-failure
 
 networks:

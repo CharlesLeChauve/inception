@@ -3,6 +3,9 @@
 # Attendre pour que les services se lancent correctement
 sleep 10
 
+export WP_ADMIN_PASSWORD="$(cat $WP_ADMIN_PASSWORD_FILE)"
+export WP_PASSWORD="$(cat $WP_PASSWORD_FILE)"
+export MYSQL_PASSWORD="$(cat $MYSQL_PASSWORD_FILE)"
 # Définir le répertoire de travail
 cd /var/www/html
 
@@ -25,6 +28,11 @@ if [ ! -f wp-config.php ]; then
     --dbhost=mariadb:3306 \
     --path='/var/www/html'
 fi
+
+#if ! grep -q "WP_REDIS_HOST" wp-config.php; then
+#  echo "define('WP_REDIS_HOST', 'redis');" >> wp-config.php
+#  echo "define('WP_REDIS_PORT', 6379);" >> wp-config.php
+#fi
 
 if wp core is-installed --allow-root --path='/var/www/html'; then
   echo "Resetting WordPress installation..."

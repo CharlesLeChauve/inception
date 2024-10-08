@@ -1,0 +1,89 @@
+/* Style global */
+* {
+    box-sizing: border-box;
+    margin: 10;
+    padding: 10;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Style du header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Espace sous le header pour éviter le recouvrement du contenu */
+main {
+    margin-top: 140px; /* Hauteur du header pour éviter qu'il cache le contenu */
+    flex: 1; /* Pour étirer le contenu sur toute la hauteur disponible */
+}
+
+/* Style du footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+h1 {
+    padding: 5 10 5 10;
+}
+
+/* Style des blocs de code multiligne */
+pre {
+    background-color: #1d1b1b; /* Fond sombre */
+    color: #FFF; /* Couleur du texte sombre pour lisibilité */
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 80ch; /* Limite à 80 caractères de large */
+    overflow-x: auto; /* Barre de défilement horizontale pour le texte long */
+    font-size: 0.9em;
+    line-height: 1.5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    white-space: pre; /* Préserve les espaces et sauts de ligne */
+}
+
+/* Style des éléments de code inline */
+code {
+    background-color: #eee; /* Fond clair pour inline */
+    color: #d14; /* Couleur du texte */
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+/* Coloration syntaxique de base pour les blocs de code */
+pre code {
+    color: #333; /* Couleur par défaut du texte dans les blocs */
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+/* Couleurs pour différents éléments dans les blocs de code */
+pre code .keyword { color: #007acc; font-weight: bold; } /* Mots-clés */
+pre code .string { color: #008000; } /* Chaînes de caractères */
+pre code .comment { color: #6a737d; font-style: italic; } /* Commentaires */
+pre code .function { color: #795e26; } /* Fonctions */
+pre code .number { color: #005cc5; } /* Nombres */

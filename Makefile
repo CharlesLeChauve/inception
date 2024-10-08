@@ -21,12 +21,6 @@ up:
 buildup:
 	$(DOCKER_COMPOSE) up --build -d
 
-build:
-	$(DOCKER_COMPOSE) build
-
-build-nocache:
-	$(DOCKER_COMPOSE) build --no-cache
-
 down:
 	$(DOCKER_COMPOSE) down
 

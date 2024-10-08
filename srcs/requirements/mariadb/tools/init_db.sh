@@ -3,6 +3,9 @@
 # Démarrer MariaDB en arrière-plan (si nécessaire dans le contexte d'un conteneur)
 mysqld_safe &
 
+export MYSQL_ROOT_PASSWORD="$(cat $MYSQL_ROOT_PASSWORD_FILE)"
+export MYSQL_PASSWORD="$(cat $MYSQL_PASSWORD_FILE)"
+
 # Attendre que le service MariaDB soit prêt
 sleep 30
 
