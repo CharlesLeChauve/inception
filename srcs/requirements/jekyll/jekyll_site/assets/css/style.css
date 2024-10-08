@@ -51,34 +51,65 @@ footer {
 h1 {
     padding: 5 10 5 10;
 }
-
 /* Style des blocs de code multiligne */
 pre {
-    background-color: #1d1b1b; /* Fond sombre */
-    color: #FFF; /* Couleur du texte sombre pour lisibilité */
+    background-color: #2e2a2a; /* Fond sombre */
+    color: #FFF; /* Couleur du texte pour lisibilité */
     padding: 10px;
+    padding-top: 30px;
+    margin: 10px 0;
     border-radius: 5px;
-    max-width: 80ch; /* Limite à 80 caractères de large */
-    overflow-x: auto; /* Barre de défilement horizontale pour le texte long */
+    max-width: 80ch; /* Limite de largeur */
+    overflow-x: auto; /* Défilement horizontal */
     font-size: 0.9em;
     line-height: 1.5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
-    white-space: pre; /* Préserve les espaces et sauts de ligne */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: pre;
 }
 
 /* Style des éléments de code inline */
 code {
-    background-color: #eee; /* Fond clair pour inline */
-    color: #d14; /* Couleur du texte */
+    background-color: #2e2a2a;
+    color: #FFF;
     padding: 2px 5px;
     border-radius: 4px;
     font-size: 0.95em;
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
-/* Coloration syntaxique de base pour les blocs de code */
-pre code {
-    color: #333; /* Couleur par défaut du texte dans les blocs */
-    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+/* Conteneur du bloc de code */
+.code-container {
+    position: relative;
+    top: 0px;
+    max-width: 80ch;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style du bouton Copier */
+.copy-btn {
+    position: absolute;
+    top: 5px; /* Place le bouton dans le coin supérieur droit */
+    right: 5px;
+    padding: 5px 8px;
+    font-size: 0.8em;
+    background-color: #757575;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1; /* Au-dessus du contenu du bloc */
+}
+
+/* Style du bouton au survol */
+.copy-btn:hover {
+    background-color: #c6c7c6;
+}
+
+/* Bouton au survol */
+.copy-btn:hover {
+    background-color: #c6c7c6;
 }
 
 /* Couleurs pour différents éléments dans les blocs de code */

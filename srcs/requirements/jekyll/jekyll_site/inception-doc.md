@@ -110,13 +110,13 @@ docker-compose -f ./srcs/docker-compose.yml -p inception up --build -d
 ### 4. Vérification des Services
 
 - **WordPress** : Accédez à `https://tgibert.42.fr`
-- **Adminer** : Accédez à `http://localhost:8080`
+- **Adminer** : Accédez à `http://tgibert.42.fr:8080`
 - **FTP** : Utilisez un client FTP pour tester la connexion avec les informations d'identification stockées.
 ```bash
 ftp -p localhost 21
 ```
 - **Redis** : Vérifiez l'intégration via `redis-cli` dans le conteneur Redis.
-- **Jekyll** : Accédez à `https://jekyll.local`
+- **Jekyll** : Accédez à `http://tgibert.42.fr:4000`
 
 ---
 
